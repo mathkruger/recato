@@ -24,19 +24,27 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
     <script type="module">
       import Recato from "https://cdn.jsdelivr.net/gh/mathkruger/recato/recato.js";
 
+      let counter = 0;
+
       const router = Recato.router({
         "/": () => Recato.div(
           Recato.h1("Olá, mundo!"),
           Recato.a("faustop").attr("href", "#/faustop")
         ),
-        "/faustop": () => Recato.div(
-          Recato.h1("Oloco meu!"),
-          Recato.element("button", "Hora").click(() => {
-            alert("EXATAMENTE 8 E 7 PESSOAL");
-          }),
-          Recato.a("voltar").attr("href", "#/")
-        ),
-      })
+        "/faustop": (router) => {
+          const onClick = () => {
+            counter += 1;
+            router.update();
+          }
+
+          return Recato.div(
+            Recato.h1("Oloco meu!"),
+            Recato.p("EXATAMENTE 8 E " + counter),
+            Recato.element("button", "Hora").click(onClick),
+            Recato.a("voltar").attr("href", "#/")
+          )
+        },
+      });
 
       Recato.init("app", router);
     </script>

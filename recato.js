@@ -2,13 +2,19 @@ const Base = {
   element(tag, ...children) {
     const el = document.createElement(tag);
     
-    children.forEach(x => {
-      if (typeof(x) == "string") {
-        el.appendChild(document.createTextNode(x));
-      } else {
-        el.appendChild(x);
-      }
-    });
+    const appendChildren = () => {
+      children.forEach(x => {
+        if (typeof(x) == "string") {
+          el.appendChild(document.createTextNode(x));
+        } else if (typeof(x) === "function") {
+          el.appendChild(x());
+        } else {
+          el.appendChild(x);
+        }
+      });
+    }
+
+    appendChildren();
   
     el.attr = function(attr, value) {
       this.setAttribute(attr, value);
@@ -18,6 +24,11 @@ const Base = {
     el.click = function(callback) {
       this.onclick = callback;
       return this;
+    }
+
+    el.update = function() {
+      el.replaceChildren();
+      appendChildren();
     }
   
     return el;
@@ -64,7 +75,7 @@ const Router = {
         routerChangeCallback(result);
       }
     });
-    
+
     result.update();
   
     return result;
