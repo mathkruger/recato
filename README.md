@@ -15,7 +15,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
     <div id="app"></div>
 
     <script type="module">
-      import Recato from "https://raw.githubusercontent.com/mathkruger/recato/main/recato.js";
+      import Recato from "https://cdn.jsdelivr.net/gh/mathkruger/recato/recato.js";
 
       Recato.init("app", Recato.div(
         Recato.h1("Olá, mundo!")
