@@ -44,4 +44,4 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 </html>
 ```
 
-Se quiser um exemplo mais sofisticado, usando padrões de projeto e toda essa porcaria, veja a pasta `exemplo`
+Se quiser um exemplo mais sofisticado, usando padrões de projeto e toda essa porcaria, veja a pasta `example`
