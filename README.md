@@ -27,14 +27,14 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
       const router = Recato.router({
         "/": () => Recato.div(
           Recato.h1("Olá, mundo!"),
-          a("faustop").attr("href", "#/faustop")
+          Recato.a("faustop").attr("href", "#/faustop")
         ),
         "/faustop": () => Recato.div(
           Recato.h1("Oloco meu!"),
           Recato.element("button", "Hora").click(() => {
             alert("EXATAMENTE 8 E 7 PESSOAL");
           }),
-          a("voltar").attr("href", "#/")
+          Recato.a("voltar").attr("href", "#/")
         ),
       })
 
