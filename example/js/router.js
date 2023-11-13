@@ -1,7 +1,7 @@
 import Fausto from "./pages/fausto.js";
 import Home from "./pages/home.js";
 import NotFound from "./pages/not-found.js";
-import Reacto from "./vendor/reacto.js";
+import Reacto from "../../reacto.js";
 const { router } = Reacto;
 
 const Router = () => router({

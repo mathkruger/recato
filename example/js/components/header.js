@@ -1,4 +1,4 @@
-import Reacto from "../vendor/reacto.js";
+import Reacto from "../../../reacto.js";
 const { div, a, nav } = Reacto;
 
 const Header = () => {
