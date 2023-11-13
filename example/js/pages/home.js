@@ -1,10 +1,12 @@
 import Recato from "../../../recato.js";
+import BasePage from "./_base.js";
 
-const { div, h1, p } = Recato;
+const { h1, p } = Recato;
 
-const Home = () => div(
+const Home = (router) => BasePage(
+  router,
   h1("Homepage"),
   p("Bem vindo amigo!"),
-).attr("class", "container");
+);
 
 export default Home;

@@ -36,7 +36,7 @@ const Base = {
   }
 };
 
-["div", "h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "canvas", "a", "figure", "nav"].forEach(tag => {
+["div", "h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "canvas", "a", "figure", "nav", "button"].forEach(tag => {
   Base[tag] = (...children) => Base.element(tag, ...children);
 });
 
@@ -47,10 +47,14 @@ const Router = {
     result.update = () => {
       result.replaceChildren();
   
-      const currentUrl = document.location.hash.split("#")[1] || "/";
-      const route = routes[currentUrl] || routes["/404"];
-  
-      result.appendChild(!route ? this.notFound() : route());
+      result.currentUrl = document.location.hash.split("#")[1] || "/";
+
+      const route = routes[result.currentUrl] || routes["/404"];
+      const elementToRender = !route ? this.notFound(result) : route(result);
+
+      result.appendChild(elementToRender);
+
+
       return result;
     }
   
@@ -60,8 +64,8 @@ const Router = {
     return result;
   },
   
-  notFound() {
-    return Base.div(Base.h1("404"), "Page not found!");
+  notFound(router) {
+    return Base.div(Base.h1("404"), "Página " + router.currentRoute + " não encontrada!");
   },
 }
 
