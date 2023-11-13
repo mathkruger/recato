@@ -8,6 +8,8 @@ const Router = () => router({
   "/": Home,
   "/fausto": Fausto,
   "/404": NotFound
+}, ({ currentUrl }) => {
+  console.log("Navigated to " + currentUrl);
 });
 
 export default Router;

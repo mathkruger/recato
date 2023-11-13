@@ -41,7 +41,7 @@ const Base = {
 });
 
 const Router = {
-  router(routes) {
+  router(routes, routerChangeCallback = null) {
     const result = Base.div().attr("id", "router-container");
   
     result.update = () => {
@@ -54,11 +54,17 @@ const Router = {
 
       result.appendChild(elementToRender);
 
-
       return result;
     }
   
-    window.addEventListener("hashchange", result.update);
+    window.addEventListener("hashchange", () => {
+      result.update();
+
+      if (routerChangeCallback) {
+        routerChangeCallback(result);
+      }
+    });
+    
     result.update();
   
     return result;
