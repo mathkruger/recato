@@ -12,6 +12,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 
 ## Uso
 
+
 ``` html
 <html>
   <head>
@@ -34,7 +35,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
         "/faustop": (router) => {
           const onClick = () => {
             counter += 1;
-            router.update();
+            router.updateAll();
           }
 
           return Recato.div(

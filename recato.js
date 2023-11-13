@@ -55,7 +55,7 @@ const Router = {
   router(routes, routerChangeCallback = null) {
     const result = Base.div().attr("id", "router-container");
   
-    result.update = () => {
+    result.updateAll = () => {
       result.replaceChildren();
   
       result.currentUrl = document.location.hash.split("#")[1] || "/";
@@ -64,19 +64,19 @@ const Router = {
       const elementToRender = !route ? this.notFound(result) : route(result);
 
       result.appendChild(elementToRender);
-
+      
       return result;
     }
   
     window.addEventListener("hashchange", () => {
-      result.update();
+      result.updateAll();
 
       if (routerChangeCallback) {
         routerChangeCallback(result);
       }
     });
 
-    result.update();
+    result.updateAll();
   
     return result;
   },
