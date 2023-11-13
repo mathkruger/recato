@@ -1,8 +1,8 @@
 import Header from "./components/header.js";
 import Router from "./router.js";
-import Reacto from "../../reacto.js";
+import Recato from "../../recato.js";
 
-Reacto.init("app",
+Recato.init("app",
   Header(),
   Router()
 );

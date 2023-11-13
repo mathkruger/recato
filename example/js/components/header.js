@@ -1,5 +1,5 @@
-import Reacto from "../../../reacto.js";
-const { div, a, nav } = Reacto;
+import Recato from "../../../recato.js";
+const { div, a, nav } = Recato;
 
 const Header = () => {
   return nav(

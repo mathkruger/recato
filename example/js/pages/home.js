@@ -1,6 +1,6 @@
-import Reacto from "../../../reacto.js";
+import Recato from "../../../recato.js";
 
-const { div, h1, p } = Reacto;
+const { div, h1, p } = Recato;
 
 const Home = () => div(
   h1("Homepage"),

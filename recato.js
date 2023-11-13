@@ -65,9 +65,9 @@ const Router = {
   },
 }
 
-const Reacto = {
+const Recato = {
   ...Base,
   ...Router
 }
 
-export default Reacto;
+export default Recato;

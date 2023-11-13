@@ -1,6 +1,6 @@
-import Reacto from "../../../reacto.js";
+import Recato from "../../../recato.js";
 
-const { div, h1, p, img, figure } = Reacto;
+const { div, h1, p, img, figure } = Recato;
 
 const faustoImgUrl =
   "https://s2.glbimg.com/JR1i4c1glD-70EYjUY-IEIzEUuc=/640x424/top/i.glbimg.com/og/ig/infoglobo/f/original/2021/04/30/faustao.jpg";
