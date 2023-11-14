@@ -26,6 +26,11 @@ const Base = {
       return this;
     }
 
+    el.change = function(callback) {
+      this.onchange = callback;
+      return this;
+    }
+
     el.update = function() {
       el.replaceChildren();
       appendChildren();

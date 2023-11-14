@@ -12,7 +12,10 @@ const Header = (router) => {
       div(
         a("Fausto")
           .attr("class", "navbar-item " + (router.currentUrl === '/fausto' ? "is-active" : ""))
-          .attr("href", "#/fausto")
+          .attr("href", "#/fausto"),
+        a("Pokemon")
+          .attr("class", "navbar-item " + (router.currentUrl === '/pokemonn' ? "is-active" : ""))
+          .attr("href", "#/pokemon")
       ).attr("class", "navbar-start")
     ).attr("class", "navbar-menu is-active")
   ).attr("class", "navbar");

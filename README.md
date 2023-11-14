@@ -28,23 +28,28 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
       let counter = 0;
 
       const router = Recato.router({
-        "/": () => Recato.div(
+        "/": (router) => Recato.div(
           Recato.h1("Olá, mundo!"),
+          Recato.p("Rota atual: " + router.currentUrl),
           Recato.a("faustop").attr("href", "#/faustop")
         ),
-        "/faustop": (router) => {
+        "/faustop": () => {
           const onClick = () => {
             counter += 1;
-            router.updateAll();
+            page.update();
           }
 
-          return Recato.div(
+          const page = Recato.div(
             Recato.h1("Oloco meu!"),
-            Recato.p("EXATAMENTE 8 E " + counter),
+            () => Recato.p("EXATAMENTE 8 E " + counter),
             Recato.element("button", "Hora").click(onClick),
             Recato.a("voltar").attr("href", "#/")
-          )
+          );
+
+          return page;
         },
+      }, () => {
+        counter = 0;
       });
 
       Recato.init("app", router);
