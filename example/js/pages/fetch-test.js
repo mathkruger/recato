@@ -3,25 +3,18 @@ import BasePage from "./_base.js";
 
 const { h1, p, div, button, element, img } = Recato;
 
-let data = null;
-let pokemonName = "";
-
 const FetchTest = (router) => {
+  let data = null;
+  let pokemonName = "";
+
   const onInputChange = (event) => {
-    const value = event.target.value;
-    pokemonName = value;
+    pokemonName = event.target.value;
   }
 
-  const fetchData = () => {
+  const fetchData = async () => {
     const api = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-
-    fetch(api).then(value => {
-      return value.json();
-    }).then(value => {
-      data = value;
-
-      page.update();
-    });
+    data = await fetch(api).then(value => value.json());
+    page.update();
   };
 
   const page = BasePage(
