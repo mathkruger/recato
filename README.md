@@ -1,17 +1,18 @@
 # Recato
 
-Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais umm framework js, pode parar de olhar, ok?
+Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um framework js, pode parar de olhar, ok?
 
 ## Recursos
 
 - JS puro
+- Sem dependências externas, é só um script de 99 linhas
 - Páginas escritas em JS, sem essa frescura de HTML
 - Eu já falei que é tudo JS?
 - Tem um router bem legalzinho.
+- Controle de estado sem frescura. Uma variável é uma variável!
 
 
 ## Uso
-
 
 ``` html
 <html>
@@ -32,7 +33,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
           Recato.a("faustop").attr("href", "#/faustop")
         ),
         "/faustop": () => {
-          let counter = 0;
+          let counter = 7;
 
           const onClick = () => {
             counter += 1;
