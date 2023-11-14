@@ -23,17 +23,17 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
     <div id="app"></div>
 
     <script type="module">
-      import Recato from "https://cdn.jsdelivr.net/gh/mathkruger/recato/recato.js";
+      import Recato from "./recato.js";
 
-      let counter = 0;
-
-      const router = Recato.router({
+      const app = Recato.router({
         "/": (router) => Recato.div(
           Recato.h1("Olá, mundo!"),
           Recato.p("Rota atual: " + router.currentUrl),
           Recato.a("faustop").attr("href", "#/faustop")
         ),
         "/faustop": () => {
+          let counter = 0;
+
           const onClick = () => {
             counter += 1;
             page.update();
@@ -48,8 +48,6 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 
           return page;
         },
-      }, () => {
-        counter = 0;
       });
 
       Recato.init("app", router);
