@@ -1,6 +1,11 @@
 const Base = {
   element(tag, ...children) {
-    const el = document.createElement(tag);
+    const fromTag = typeof(tag) === "string";
+    const el = fromTag ? document.createElement(tag) : tag;
+
+    if (fromTag) {
+      el.replaceChildren();
+    }
     
     const appendChildren = () => {
       children.forEach(x => {
@@ -49,6 +54,23 @@ const Base = {
     elements.forEach(el => {
       container.appendChild(el);
     });
+  },
+
+  html(strings, ...values) {
+    const el = document.createElement("template");
+
+    let innerHTML = "";
+
+    strings.forEach((x, i) => {
+      const value = values[i];
+      console.log(x, value);
+      innerHTML += String.raw`${x}${value != null ? value : ""}`;
+    });
+
+    el.innerHTML = innerHTML.trim();
+
+    const first = el.content.firstChild;
+    return Base.element(first, ...first.childNodes);
   }
 };
 

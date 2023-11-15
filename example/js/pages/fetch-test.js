@@ -1,7 +1,7 @@
 import Recato from "../../../recato.js";
 import BasePage from "./_base.js";
 
-const { h1, p, div, button, element, img } = Recato;
+const { h1, p, div, button, element, img, html } = Recato;
 
 const FetchTest = (router) => {
   let data = null;
@@ -30,25 +30,30 @@ const FetchTest = (router) => {
       button("Fetch Data").attr("class", "button").click(fetchData),
       element("br"),
     ).attr("class", "mb-4"),
-    () => data ? div(
-      div(
-        div(
-          img(data.sprites.front_default).attr("class", "image")
-        ).attr("class", "column"),
-        div(
-          img(data.sprites.back_default).attr("class", "image")
-        ).attr("class", "column"),
-        div(
-          img(data.sprites.front_shiny).attr("class", "image")
-        ).attr("class", "column"),
-        div(
-          img(data.sprites.back_shiny).attr("class", "image")
-        ).attr("class", "column")
-      ).attr("class", "columns"),
-      p("Name: " + data.name),
-      p("Habilidades: " + data.abilities.map(x => x.ability.name).join(", ")),
-      p("Movimentos: " + data.moves.map(x => x.move.name).join(", ")),
-    ) : div()
+    () => data ? html`
+    <div class="card p-4">
+      <div class="columns">
+        <div class="column">
+          <img src="${data.sprites.front_default}" class="image" />
+        </div>
+
+        <div class="column">
+          <img src="${data.sprites.back_default}" class="image" />
+        </div>
+
+        <div class="column">
+          <img src="${data.sprites.front_shiny}" class="image" />
+        </div>
+
+        <div class="column">
+          <img src="${data.sprites.back_shiny}" class="image" />
+        </div>
+      </div>
+
+      <p>Nome: ${data.name}</p>
+      <p>Habilidades: ${data.abilities.map(x => x.ability.name).join(", ")}</p>
+      <p>Movimentos: ${data.moves.map(x => x.move.name).join(", ")}</p>
+    </div>` : div()
   );
 
   return page;

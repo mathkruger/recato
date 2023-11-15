@@ -10,7 +10,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 - Eu já falei que é tudo JS?
 - Tem um router bem legalzinho.
 - Controle de estado sem frescura. Uma variável é uma variável!
-
+- Ok, se você ainda quiser usar HTML, você pode, seu frescurento! (Exemplo abaixo)
 
 ## Uso
 
@@ -42,7 +42,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 
           const page = Recato.div(
             Recato.h1("Oloco meu!"),
-            () => Recato.p("EXATAMENTE 8 E " + counter),
+            () => Recato.html`<p>Exatamente as 8 e ${counter}</p>`,
             Recato.element("button", "Hora").click(onClick),
             Recato.a("voltar").attr("href", "#/")
           );
