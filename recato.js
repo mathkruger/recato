@@ -63,7 +63,6 @@ const Base = {
 
     strings.forEach((x, i) => {
       const value = values[i];
-      console.log(x, value);
       innerHTML += String.raw`${x}${value != null ? value : ""}`;
     });
 

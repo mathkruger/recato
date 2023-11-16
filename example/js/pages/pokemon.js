@@ -3,7 +3,7 @@ import BasePage from "./_base.js";
 
 const { h1, p, div, button, element, img, html } = Recato;
 
-const FetchTest = (router) => {
+const Pokemon = (router) => {
   let data = null;
   let pokemonName = "";
 
@@ -59,4 +59,4 @@ const FetchTest = (router) => {
   return page;
 }
 
-export default FetchTest;
+export default Pokemon;
