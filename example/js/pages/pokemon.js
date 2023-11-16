@@ -1,7 +1,7 @@
 import Recato from "../../../recato.js";
 import BasePage from "./_base.js";
 
-const { h1, p, div, button, element, img, html } = Recato;
+const { h1, p, div, button, element, html } = Recato;
 
 const Pokemon = (router) => {
   let data = null;
