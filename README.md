@@ -14,7 +14,7 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
 
 ## Uso
 
-``` html
+```html
 <html>
   <head>
     <title>Olá</title>
@@ -27,24 +27,25 @@ Um framework web duvidoso, sem pretensão de ser levado a sério. É só mais um
       import Recato from "./recato.js";
 
       const app = Recato.router({
-        "/": (router) => Recato.div(
-          Recato.h1("Olá, mundo!"),
-          Recato.p("Rota atual: " + router.currentUrl),
-          Recato.a("faustop").attr("href", "#/faustop")
-        ),
+        "/": (router) =>
+          Recato.div(
+            Recato.h1("Olá, mundo!"),
+            Recato.p("Rota atual: " + router.currentUrl),
+            Recato.a("faustop").attr("href", "#/faustop"),
+          ),
         "/faustop": () => {
           let counter = 7;
 
           const onClick = () => {
             counter += 1;
             page.update();
-          }
+          };
 
           const page = Recato.div(
             Recato.h1("Oloco meu!"),
             () => Recato.html`<p>Exatamente as 8 e ${counter}</p>`,
-            Recato.element("button", "Hora").click(onClick),
-            Recato.a("voltar").attr("href", "#/")
+            Recato.button("Hora").click(onClick),
+            Recato.a("voltar").attr("href", "#/"),
           );
 
           return page;

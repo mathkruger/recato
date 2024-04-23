@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecatoJS</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="module" async defer>
+      import Recato from "./recato.js";
+
+      const app = Recato.router({
+        "/": (router) =>
+          Recato.div(
+            Recato.h1("Recato").attr("class", "text-center"),
+            Recato.p("Rota atual: " + router.currentUrl),
+            Recato.a("faustop").attr("href", "#/faustop")
+          ).attr("class", "container mx-auto"),
+        "/faustop": () => {
+          let counter = 7;
+
+          const onClick = () => {
+            counter += 1;
+            page.update();
+          };
+
+          const page = Recato.div(
+            Recato.h1("Oloco meu!"),
+            () => Recato.html`<p>Exatamente as 8 e ${counter}</p>`,
+            Recato.button("Hora").click(onClick),
+            Recato.a("voltar").attr("href", "#/")
+          );
+
+          return page;
+        },
+      });
+
+      Recato.init("app", app);
+    </script>
+  </body>
+</html>
